@@ -6,7 +6,6 @@ class CommentManager(models.Manager):
 
 
 class Comment(models.Model):
-    # id = models.UUIDField(primary_key=True, auto_created=True, default=generate_uid)
     event = models.ForeignKey('event.Event', on_delete=models.CASCADE)
     user = models.ForeignKey('user.User', on_delete=models.CASCADE)
     message = models.CharField(max_length=130)
@@ -16,5 +15,5 @@ class Comment(models.Model):
     objects = CommentManager()
 
     class Meta:
-        db_table = "event.comment"
+        db_table = '"event"."comment"'
         managed = True

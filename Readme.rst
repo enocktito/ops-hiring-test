@@ -1,5 +1,5 @@
 ===========
-Kele API
+Event API
 ===========
 
 Setup
@@ -26,9 +26,22 @@ Setup
 
 6. Run migrations::
 
-    python manage.py migrate
+    python manage migrate
 
-7. Run the project::
+7. Setup your env var for the db `settings.py` and add DB_USER and DB_PASSWORD in your env::
 
-    python manage.py runserver
+    DB_NAME: Database name
+    DB_USER: Database user
+    DB_PASSWORD: Database password
+
+8. Run server::
+
+    python manage runserver
+
+
+NB
+--
+The database used is `postgres-11.5`.
+
+For the moment, `mysql` or `sqlite3` can work with migrations
 
