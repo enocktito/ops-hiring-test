@@ -4,8 +4,11 @@ import os
 from django.db import models
 from django.conf import settings
 
+from user.models import User
+
 
 class AuthToken(models.Model):
+    user = models.OneToOneField(User, related_name='auth_token', null=True, on_delete=models.CASCADE)
     key = models.CharField(max_length=40)
     refresh = models.CharField(max_length=40, null=True)
     created = models.DateTimeField(auto_now_add=True)

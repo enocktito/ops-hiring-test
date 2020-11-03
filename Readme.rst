@@ -34,7 +34,9 @@ Setup
     DB_USER: Database user
     DB_PASSWORD: Database password
 
-8. Run server::
+8. Créer un schema `event`
+
+9. Run server::
 
     python manage runserver
 
