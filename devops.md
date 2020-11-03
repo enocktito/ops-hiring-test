@@ -8,7 +8,7 @@ i.e when the dev push on a specific branch in our case (master/main)
 # Task
 Your task is to build a full CI/CD which will deploy this project to the server we provided to you:
   
-- You have to use `docker` and `docker-compose` to build the image.
+- You have to use `docker` and `docker-compose` to build the project image which will run on the server.
 
 - You have to install and configure postgres on the server. And authorize the user to connect from a remote machine.
 
