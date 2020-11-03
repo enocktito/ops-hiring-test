@@ -10,11 +10,11 @@ Your task is to build a full CI/CD which will deploy this project to the server 
   
 - You have to use `docker` and `docker-compose` to build the project image which will run on the server.
 
-- You have to install and configure postgres on the server. And authorize the user to connect from a remote machine.
+- You have to install and configure `postgres` on the server. And authorize the user to connect from a remote machine.
 
 - You have to install a web server `nginx` that will help to access to the project when we access to http://85.159.209.178
 
-- The CI/CD shouldn't be down during a new release( **ZERO Downtime** ). You have to use `docker-swarm`
+- The CI/CD respect the **ZERO Downtime** convention. You have to use `docker-swarm`
 
 PS: Don't forget the security measures when you are setting up your CI/CD environment 
 and feel free to configure it like it is your own server.
