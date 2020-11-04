@@ -19,4 +19,4 @@ Your task is to build a full CI/CD which will deploy this project to the server 
 PS: Don't forget the security measures when you are setting up your CI/CD environment 
 and feel free to configure it like it is your own server.
 
-Please refer to the `README.rst` to know to setup the project.
+Please refer to the `README.rst` to know how to setup the project.
