@@ -50,4 +50,4 @@ For the moment, `mysql` or `sqlite3` can work with migrations
 
 Task
 ====
-see task devops.md -> devops.md
+You can find it in `devops.md`
