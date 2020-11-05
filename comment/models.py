@@ -15,5 +15,5 @@ class Comment(models.Model):
     objects = CommentManager()
 
     class Meta:
-        db_table = '"event"."comment"'
+        db_table = 'event_comment'
         managed = True

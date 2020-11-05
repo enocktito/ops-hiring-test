@@ -25,5 +25,5 @@ class User(AbstractUser):
         return "%s %s" % (self.first_name, self.last_name)
 
     class Meta:
-        db_table = '"event"."user"'
+        db_table = 'event_user'
         managed = True

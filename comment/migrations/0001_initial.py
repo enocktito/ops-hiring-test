@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
                 ('event', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='event.event')),
             ],
             options={
-                'db_table': '"event"."comment"',
+                'db_table': 'event_comment',
                 'managed': True,
             },
         ),
