@@ -46,3 +46,4 @@ jobs:
           dockerfile: Dockerfile
           username: ${{ secrets.DOCKER_LOGIN }}
           password: ${{ secrets.DOCKER_ACCES_TOKEN }}
+      - run: ls 
