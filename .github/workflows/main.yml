@@ -40,6 +40,7 @@ jobs:
         docker push sedjro/quatro-api:latest
   deploy:
     runs-on: test-server
+    needs: [test]
     steps:
       - name: start the swarm deployment
         run: h
