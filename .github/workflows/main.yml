@@ -42,4 +42,4 @@ jobs:
     runs-on: test-server
     steps:
       - name: start the swarm deployment
-        run: echo "hello"
+        run: h
