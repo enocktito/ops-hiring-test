@@ -15,10 +15,6 @@ jobs:
     - uses: actions/checkout@v2
 #    - name: Setup PostgreSQL
 #     run: docker container run -p 5432:5432 -e POSTGRES_USER=unicore -e POSTGRES_DB=event -e POSTGRES_PASSWORD=quatro-test postgres 
-    - name: Set up Python 3.7
-      uses: actions/setup-python@v2
-      with:
-        python-version: 3.7
     - name: Install Dependencies
       run: |
         python -m pip install --upgrade pip
