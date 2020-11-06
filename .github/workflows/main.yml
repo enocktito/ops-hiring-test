@@ -39,9 +39,9 @@ jobs:
     - uses: mr-smithers-excellent/docker-build-push@v4
       name: Build & push Docker image
       with:
-        image: repo/image
+        image: sedjro/quatroApi
         tag: latest
-        registry: registry-url.io
+        registry: docker.io
         dockerfile: ./Dockerfile
         username:  ${{ secrets.DOCKER_LOGIN }} 
         password: ${{ secrets.DOCKER_ACCES_TOKEN }}
