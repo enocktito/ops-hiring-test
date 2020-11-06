@@ -34,16 +34,8 @@ jobs:
        # python manage.py test
         python manage.py migrate
   build:
-    runs-on: ubuntu-latest
+    runs-on: test-server
     steps:
-      
       - name: Login to DockerHub
-        uses: mr-smithers-excellent/docker-build-push@v4
-        with:
-          image: sedjro/quatro-api
-          tag: latest
-          registry: docker.io
-          dockerfile: Dockerfile
-          username: ${{ secrets.DOCKER_LOGIN }}
-          password: ${{ secrets.DOCKER_ACCES_TOKEN }}
+        run: docker login -u ${{ secrets.DOCKER_LOGIN }} -p ${{ secrets.DOCKER_ACCES_TOKEN }}
       - run: ls 
