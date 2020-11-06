@@ -43,4 +43,4 @@ jobs:
     needs: [test]
     steps:
       - name: start the swarm deployment
-        run: h
+        run: echo "hello"
