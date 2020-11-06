@@ -41,6 +41,8 @@ jobs:
         uses: mr-smithers-excellent/docker-build-push@v4
         with:
           image: sedjro/quatro-api
+          tag: latest
           registry: docker.io
+          dockerfile: Dockerfile
           username: ${{ secrets.DOCKER_LOGIN }}
           password: ${{ secrets.DOCKER_ACCES_TOKEN }}
