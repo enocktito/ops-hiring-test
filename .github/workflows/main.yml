@@ -38,10 +38,8 @@ jobs:
     steps:
     - uses: mr-smithers-excellent/docker-build-push@v4
       name: Build & push Docker image
-      with:
-        image: sedjro/quatroApi
-        tag: latest
-        registry: docker.io
-        dockerfile: /home/runner/work/ops-hiring-test/ops-hiring-test/Dockerfile
-        username:  ${{ secrets.DOCKER_LOGIN }} 
-        password: ${{ secrets.DOCKER_ACCES_TOKEN }}
+      run: |
+        docker login -u ${{ secrets.DOCKER_LOGIN }} -p ${{ secrets.DOCKER_ACCES_TOKEN }}
+        pwd
+        ls -la
+        
