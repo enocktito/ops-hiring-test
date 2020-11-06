@@ -33,8 +33,6 @@ jobs:
       run: |
        # python manage.py test
         python manage.py migrate
-        ls -la
-        pwd
   build:
     runs-on: ubuntu-latest
     steps:
@@ -44,6 +42,6 @@ jobs:
         image: sedjro/quatroApi
         tag: latest
         registry: docker.io
-        dockerfile: ops-hiring-test/Dockerfile
+        dockerfile: /home/runner/work/ops-hiring-test/ops-hiring-test/Dockerfile
         username:  ${{ secrets.DOCKER_LOGIN }} 
         password: ${{ secrets.DOCKER_ACCES_TOKEN }}
