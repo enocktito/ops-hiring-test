@@ -36,14 +36,13 @@ jobs:
     - name: Build & push Docker image
       run: |
         docker login -u ${{ secrets.DOCKER_LOGIN }} -p ${{ secrets.DOCKER_ACCES_TOKEN }}
-        docker build -t sedjro/quatro-api:${{ git_sha }} .
-        docker push sedjro/quatro-api:${{ git_sha }}
+        docker build -t sedjro/quatro-api:latest .
+        docker push sedjro/quatro-api:latest
   deploy:
     runs-on: test-server
     needs: [test]
     steps:
       - name: start the swarm deployment
         run: |
-          echo ${{ git_sha }}
-          docker image pull sedjro/quatro-api:${{ git_sha }}
-          docker service update --image sedjro/quatro-api:${{ git_sha }} quatro-api
+          docker image pull sedjro/quatro-api:latest
+          docker service update --image sedjro/quatro-api:latest quatro-api
