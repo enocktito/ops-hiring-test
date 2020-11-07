@@ -38,14 +38,15 @@ jobs:
       run: |
         docker login -u ${{ secrets.DOCKER_LOGIN }} -p ${{ secrets.DOCKER_ACCES_TOKEN }}
         docker build -t img .
+    - run: export TAG=latest
     - id: tager
       run: |
-        export TAG=latest
         docker images --format "{{.ID}}" img > $TAG
         cat $TAG
-        echo "::set-output name=tag::$TAG"
-        docker image tag img sedjro/quatro-api:${{ secrets.DOCKER_LOGIN }}
-        docker image push sedjro/quatro-api:${{ secrets.DOCKER_LOGIN }}
+        echo "::set-output name=tag::$(echo $TAG)"
+    - name: Tag and push
+        docker image tag img sedjro/quatro-api:${{ steps.tager.outputs.tag }}
+        docker image push sedjro/quatro-api:${{ steps.tager.outputs.tag }}
         docker images 
   deploy:
     runs-on: test-server
