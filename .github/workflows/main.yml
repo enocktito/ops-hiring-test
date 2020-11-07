@@ -46,7 +46,7 @@ jobs:
       run: |
         docker image tag img sedjro/quatro-api:${{steps.tager.outputs.tag}}
         docker image push sedjro/quatro-api:${{steps.tager.outputs.tag}}
-        
+        echo "${{steps.tager.outputs.tag}}"
   deploy:
     runs-on: test-server
     needs: [test]
