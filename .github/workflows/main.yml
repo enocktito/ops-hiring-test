@@ -11,9 +11,7 @@ jobs:
 
     runs-on: ubuntu-latest
     outputs:
-      customtag:
-        description: "Use the digest of the docker image ta make a tag"
-        value: ${{steps.tager.outputs.tag}}
+      customtag: ${{steps.tager.outputs.tag}}
     steps:
     - uses: actions/checkout@v2
     - name: Setup PostgreSQL
