@@ -44,13 +44,14 @@ jobs:
         docker images --format "{{.ID}}" img > $TAG
         cat $TAG
         echo "::set-output name=tag::$TAG"
-        docker image tag img sedjro/quatro-api:$TAG
-        docker image push sedjro/quatro-api:$TAG
+        docker image tag img sedjro/quatro-api:${{ secrets.DOCKER_LOGIN }}
+        docker image push sedjro/quatro-api:${{ secrets.DOCKER_LOGIN }}
+        docker images 
   deploy:
     runs-on: test-server
     needs: [test]
     steps:
-      - name: start the swarm deployment
+      - name: start the deployment
         run: |
           docker image pull sedjro/quatro-api:${{needs.test.outputs.customtag}}
           docker service update --image sedjro/quatro-api:${{needs.test.outputs.customtag}} quatro-api
