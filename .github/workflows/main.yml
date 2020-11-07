@@ -1,3 +1,8 @@
+
+Django CI/CD
+This run
+Workflow file
+.github/workflows/main.yml
 name: Django CI/CD
 
 on:
@@ -34,20 +39,18 @@ jobs:
       run: |
         # python manage.py test
         python manage.py migrate 
-    - name: Build Docker image
+    - name: Build & push Docker image
       run: |
         docker login -u ${{ secrets.DOCKER_LOGIN }} -p ${{ secrets.DOCKER_ACCES_TOKEN }}
         docker build -t img .
         export TAG=latest
-    - name: Tager
-      id: tager
+    - id: tager
       run: |
         docker images --format "{{.ID}}" img > $TAG
         cat $TAG
-        echo "::set-output name=tag::$(echo $TAG)"
-    - name: Tag and push
-        docker image tag img sedjro/quatro-api:${{ steps.tager.outputs.tag }}
-        docker image push sedjro/quatro-api:${{ steps.tager.outputs.tag }}
+        echo "::set-output name=tag::$TAG"
+        docker image tag img sedjro/quatro-api:${{ secrets.DOCKER_LOGIN }}
+        docker image push sedjro/quatro-api:${{ secrets.DOCKER_LOGIN }}
         docker images 
   deploy:
     runs-on: test-server
