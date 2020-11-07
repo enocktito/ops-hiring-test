@@ -42,11 +42,9 @@ jobs:
       run: |
         export TAG=latest
         docker images --format "{{.ID}}" img > $TAG
-        cat $TAG
+        echo "::set-output name=tag::$(cat $TAG)"
     - name: test tag
       run: |
-        cat $TAG
-        echo "::set-output name=tag::$TAG"
         docker image tag img sedjro/quatro-api:${{ secrets.DOCKER_LOGIN }}
         docker image push sedjro/quatro-api:${{ secrets.DOCKER_LOGIN }}
         docker images 
