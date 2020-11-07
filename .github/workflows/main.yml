@@ -45,6 +45,7 @@ jobs:
         echo "::set-output name=tag::$(cat $TAG)"
     - name: test tag
       run: |
+        echo ${{ steps.tager.outputs.tag }}
         docker image tag img sedjro/quatro-api:${{ secrets.DOCKER_LOGIN }}
         docker image push sedjro/quatro-api:${{ secrets.DOCKER_LOGIN }}
         docker images 
