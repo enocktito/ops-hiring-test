@@ -39,7 +39,8 @@ jobs:
         docker login -u ${{ secrets.DOCKER_LOGIN }} -p ${{ secrets.DOCKER_ACCES_TOKEN }}
         docker build -t img .
         export TAG=latest
-    - id: tager
+    - name: Tager
+      id: tager
       run: |
         docker images --format "{{.ID}}" img > $TAG
         cat $TAG
