@@ -34,11 +34,11 @@ jobs:
       run: |
         # python manage.py test
         python manage.py migrate 
-    - name: Build & push Docker image
+    - name: Build Docker image
       run: |
         docker login -u ${{ secrets.DOCKER_LOGIN }} -p ${{ secrets.DOCKER_ACCES_TOKEN }}
         docker build -t img .
-    - run: export TAG=latest
+        export TAG=latest
     - id: tager
       run: |
         docker images --format "{{.ID}}" img > $TAG
