@@ -42,6 +42,7 @@ jobs:
       run: |
         export TAG=latest
         docker images --format "{{.ID}}" img > $TAG
+        cat $TAG
         echo "::set-output name=tag::$TAG"
     - name: Tag and push 
       run: |
