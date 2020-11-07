@@ -44,11 +44,8 @@ jobs:
         docker images --format "{{.ID}}" img > $TAG
         cat $TAG
         echo "::set-output name=tag::$TAG"
-    - name: Tag and push 
-      run: |
-        docker image tag img sedjro/quatro-api:${{steps.tager.outputs.tag}}
-        docker image push sedjro/quatro-api:${{steps.tager.outputs.tag}}
-        echo "${{steps.tager.outputs.tag}}"
+        docker image tag img sedjro/quatro-api:$TAG
+        docker image push sedjro/quatro-api:$TAG
   deploy:
     runs-on: test-server
     needs: [test]
