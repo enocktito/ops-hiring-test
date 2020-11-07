@@ -44,6 +44,7 @@ jobs:
         docker images --format "{{.ID}}" img > $TAG
         cat $TAG
     - name: test tag
+      run: |
         cat $TAG
         echo "::set-output name=tag::$TAG"
         docker image tag img sedjro/quatro-api:${{ secrets.DOCKER_LOGIN }}
