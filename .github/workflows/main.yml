@@ -55,5 +55,7 @@ jobs:
     steps:
       - name: start the deployment
         run: |
+          docker service inspect --pretty quatro-api
           docker image pull ${{ secrets.DOCKER_LOGIN }}/quatro-api:${{needs.test.outputs.customtag}}
           docker service update --image ${{ secrets.DOCKER_LOGIN }}/quatro-api:${{needs.test.outputs.customtag}} quatro-api
+          docker service inspect --pretty quatro-api
